@@ -1232,7 +1232,6 @@
 // const imgTitle = document.createAttribute('title');
 // img.setAttributeNode(imgTitle);
 
-
 // const animals = [
 //     {
 //     src: "./assets/images/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg",
@@ -1265,7 +1264,6 @@
 
 // divPWrapper.append(newElement)
 
-
 // const newElement = document.createElement('button');
 
 // newElement.setAttribute('id', 'newBtn')
@@ -1279,56 +1277,112 @@
 // })
 
 // const btnAdd = document.querySelector('#btn-add');
+// const inputAdd = document.querySelector('#input-add')
+// const toDoList = document.querySelector('.to-do-list');
+
+// function deleteLi (event) {
+//     event.target.parentElement.remove();
+// }
 
 // btnAdd.addEventListener('click', (e) => {
-//     const toDoList = document.querySelector('.to-do-list');
-//     const newLi = document.createElement('li');
-//     const newSpan = document.createElement('span');
-//     const newBtn = document.createElement('button');
-
-//     newLi.setAttribute('class', 'to-do-list-item');
-//     newSpan.setAttribute('class', 'to-do-list-item-text');
-//     newBtn.classList.add('to-do-list-item-btn');
-//     newBtn.id = 'btn-delete'
-
 //     const userText = prompt('What is your task ?');
 
-//     newSpan.textContent = userText;
-//     newBtn.textContent = 'Delete';
+//     if (userText === ''){
+//         alert("Empty field");
+//         return;
+//     }
 
-//     newSpan.append(newBtn);
-//     newLi.append(newSpan); 
+//     const newLi = document.createElement('li');
+//     newLi.classList.add('to-do-list-item');
+
+//     const newInput = document.createElement('input');
+//     newInput.setAttribute('type', 'checkbox')
+//     newInput.classList.add('to-do-list-item-input')
+//     newLi.append(newInput);
+
+//     const newSpan = document.createElement('span');
+//     newSpan.classList.add('to-do-list-item-text');
+//     newSpan.textContent = userText;
+//     newLi.append(newSpan);
+
+//     const newBtn = document.createElement('button');
+//     newBtn.classList.add('to-do-list-item-btn');
+//     newBtn.textContent = 'Delete';
+//     newLi.append(newBtn);
+
 //     toDoList.append(newLi);
+
+//     newBtn.addEventListener('click', deleteLi );
+
+//     newInput.addEventListener('change', () => {
+//         if (newInput.checked){
+//             newSpan.style.opacity = '0.5'
+//             newBtn.style.opacity = '0.7'
+//         } else {
+//             newSpan.style.opacity = '1'
+//             newBtn.style.opacity = '1'
+//         }
+//     })
 // });
 
-// const btnDelete = document.querySelector('#btn-delete')
 
-// btnDelete.addEventListener('click', (e) => {
-//     newLi.remove()
-// })
+const form = document.querySelector("#form-add")
+const inputAdd = document.querySelector("#input-add");
+const toDoList = document.querySelector(".to-do-list");
 
-const btnAdd = document.querySelector('#btn-add');
-const toDoList = document.querySelector('.to-do-list');
+// function deleteLi(event) {
+//     event.target.parentElement.remove();
+// }
 
-btnAdd.addEventListener('click', (e) => {
-    const newLi = document.createElement('li');
-    const newSpan = document.createElement('span');
-    const newBtn = document.createElement('button');
+form.addEventListener("submit", (e) => {
+    
+    e.preventDefault();
+    
+    const userText = inputAdd.value.trim();
 
-    newLi.setAttribute('class', 'to-do-list-item');
-    newSpan.setAttribute('class', 'to-do-list-item-text');
-    newBtn.classList.add('to-do-list-item-btn');
+    if (userText === "") {
+    alert("Empty field");
+    return;
+    }
 
-    const userText = prompt('What is your task ?');
+    const newLi = document.createElement("li");
+    newLi.classList.add("to-do-list-item");
 
+    const newInput = document.createElement("input");
+    newInput.setAttribute("type", "checkbox");
+    newInput.classList.add("to-do-list-item-input");
+    newLi.append(newInput);
+
+    const newSpan = document.createElement("span");
+    newSpan.classList.add("to-do-list-item-text");
     newSpan.textContent = userText;
-    newBtn.textContent = 'Delete';
-
-    newSpan.append(newBtn);
     newLi.append(newSpan);
+
+    const newBtn = document.createElement("button");
+    newBtn.classList.add("to-do-list-item-btn");
+    newBtn.textContent = "Delete";
+    newLi.append(newBtn);
+
     toDoList.append(newLi);
 
-    newBtn.addEventListener('click', () => {
-        newLi.remove();
+    // newBtn.addEventListener("click", deleteLi);
+
+    newInput.addEventListener("change", () => {
+    if (newInput.checked) {
+        newSpan.style.opacity = "0.5";
+        newBtn.style.opacity = "0.7";
+    } else {
+        newSpan.style.opacity = "1";
+        newBtn.style.opacity = "1";
+    }
     });
+
+    inputAdd.value = "";
+});
+
+toDoList.addEventListener('click', (e) => {
+    if(e.target.tagName !== 'BUTTON'){
+        return
+    }   
+    e.target.parentElement.remove();
 });
