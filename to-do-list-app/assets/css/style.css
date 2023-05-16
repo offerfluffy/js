@@ -1,0 +1,74 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+.to-do {
+  margin: auto;
+  padding: 30px;
+  width: fit-content;
+}
+.input-btn-form{
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+.to-do-input{
+  margin: 0px 4px;
+  padding: 13.5px;
+  color: gray;
+  border: solid rgb(155, 155, 155) 2px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 350px;
+}
+.to-do-header {
+  font-size: 30px;
+  color: rgb(79, 79, 233);
+}
+.to-do-btn-add {
+  margin: 0px 25px;
+  font-size: 16px;
+  padding: 14px 19px;
+  background-color: rgb(67, 65, 211);
+  border: rgb(67, 65, 211) solid 2px;
+  border-radius: 5px;
+  color: white;
+}
+.to-do-btn-add:hover{
+  background-color: rgb(255, 255, 255);
+  color:rgb(61, 59, 189);
+  transition: all 100ms ease-in-out;
+}
+.to-do-list {
+  margin: 20px 0px;
+}
+.to-do-list-item {
+  display: flex;
+  align-items: center;
+  margin: 30px -35px;
+}
+.to-do-list-item-text {
+  font-size: 20px;
+  max-width: 310px;
+}
+.to-do-list-item-input{
+  width: 20px;
+  height: 20px;
+  margin: 0px 20px 0px 0px;
+}
+.to-do-list-item-btn {
+  position: absolute;
+  right: 697px;
+  margin: 0px 25px;
+  font-size: 16px;
+  padding: 10px 17px;
+  background-color: rgb(255, 11, 11);
+  border: 2px solid rgb(255, 11, 11);
+  border-radius: 5px;
+  color: white;
+}
+.to-do-list-item-btn:hover{
+  background-color: white;
+  color: rgb(255, 0, 0);
+  transition: all 200ms;
+}
